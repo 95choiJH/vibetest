@@ -35,6 +35,10 @@
     --color-blue-700: #334172;
     --color-blue-900: #1C2541;
 
+    /* LMS */
+    --color-lms-primary: #3E7FE3;
+    --color-lms-secondary: #F3F4FA;
+
     /* Utility colors */
     --color-accent-link: #0066FF;
     --color-error-50: #FEF2F2;

@@ -141,7 +141,7 @@ function PopupTreeNode({ branch }: { branch: TreeBranch }) {
       <CollapsibleTrigger
         className={`flex items-center w-full px-4 py-2.5 gap-2 cursor-pointer transition-colors text-left rounded-sm ${
           branch.active
-            ? 'bg-secondary-foreground text-primary-foreground'
+            ? 'bg-lms-primary text-primary-foreground'
             : 'bg-neutral-100 text-foreground hover:bg-neutral-200'
         }`}
       >
@@ -162,7 +162,7 @@ function PopupTreeNode({ branch }: { branch: TreeBranch }) {
               key={leaf.name}
               className={`flex items-center w-full px-4 py-2 text-[12px] rounded-sm transition-colors text-left cursor-pointer ${
                 leaf.active
-                  ? 'font-bold bg-primary text-primary-foreground'
+                  ? 'font-bold bg-lms-primary text-primary-foreground'
                   : 'font-medium text-foreground bg-neutral-50 hover:bg-blue-50'
               }`}
             >
@@ -212,7 +212,7 @@ export function MemberOrgChangePopup({
         <DialogOverlay />
         <DialogPrimitive.Popup
           data-slot="dialog-content"
-          className="fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-[960px] max-h-[90vh] bg-background rounded-lg ring-1 ring-foreground/10 shadow-xl outline-none flex flex-col data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 duration-100"
+          className="fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-[1140px] max-h-[90vh] bg-background rounded-lg ring-1 ring-foreground/10 shadow-xl outline-none flex flex-col data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 duration-100"
         >
           {/* ─── Header ─── */}
           <div className="px-6 py-4 border-b border-border">
@@ -265,7 +265,7 @@ export function MemberOrgChangePopup({
           {/* ─── 3-Column Body ─── */}
           <div className="flex flex-1 overflow-hidden border-b border-border">
             {/* ── Left: Organization Tree (350px) ── */}
-            <div className="w-[280px] min-w-[280px] border-r border-border flex flex-col">
+            <div className="w-[350px] min-w-[350px] border-r border-border flex flex-col">
               <div className="flex items-center justify-between px-3 h-[44px] border-b border-border">
                 <span className="text-[13px] font-bold text-foreground">조직명</span>
               </div>
@@ -389,13 +389,13 @@ export function MemberOrgChangePopup({
             </div>
 
             {/* ── Right: Selected Members Panel ── */}
-            <div className="w-[240px] min-w-[240px] border-l border-border flex flex-col">
+            <div className="w-[280px] min-w-[280px] border-l border-border flex flex-col">
               <div className="flex items-center justify-between px-4 h-[44px] border-b border-border">
                 <span className="text-[13px] font-bold text-foreground">
                   선택된 구성원 {selectedMembers.length}명
                 </span>
                 <button
-                  className="text-[11px] text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                  className="text-[11px] px-2.5 py-1 border border-border rounded-sm text-muted-foreground hover:text-foreground hover:border-foreground transition-colors cursor-pointer"
                   onClick={() => setSelectedMembers([])}
                 >
                   전체 해제
@@ -406,12 +406,12 @@ export function MemberOrgChangePopup({
                 {selectedMembers.map((member) => (
                   <div
                     key={member.id}
-                    className="bg-background border border-border rounded-sm p-3 relative"
+                    className="bg-background border border-border rounded-sm px-3 py-2.5"
                   >
-                    <div className="flex items-start justify-between mb-1">
-                      <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1 min-w-0 mr-2">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[13px] font-bold text-foreground truncate">
+                          <span className="text-[12px] font-bold text-foreground truncate">
                             {member.name}
                           </span>
                           <span className="text-[11px] text-muted-foreground">|</span>
@@ -423,22 +423,22 @@ export function MemberOrgChangePopup({
                           {member.path}
                         </div>
                       </div>
-                      <button
-                        onClick={() => removeMember(member.id)}
-                        className="text-neutral-400 hover:text-foreground transition-colors shrink-0 ml-2 cursor-pointer"
-                      >
-                        <X className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                    <div className="flex items-center justify-end gap-1.5 mt-2">
-                      <Switch
-                        checked={member.isLeader}
-                        onCheckedChange={() => toggleLeader(member.id)}
-                        size="sm"
-                      />
-                      <span className={`text-[11px] ${member.isLeader ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
-                        리더
-                      </span>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <Switch
+                          checked={member.isLeader}
+                          onCheckedChange={() => toggleLeader(member.id)}
+                          size="sm"
+                        />
+                        <span className={`text-[11px] ${member.isLeader ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+                          리더
+                        </span>
+                        <button
+                          onClick={() => removeMember(member.id)}
+                          className="text-neutral-400 hover:text-foreground transition-colors cursor-pointer"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}

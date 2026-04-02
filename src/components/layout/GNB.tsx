@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import {
   Select,
@@ -6,7 +7,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { LogOut } from 'lucide-react'
 import { SuniLogo } from './SuniLogo'
 
@@ -32,6 +32,8 @@ const navItems = [
  * --foreground (#262626)      → 메뉴 기본 텍스트
  */
 export function GNB() {
+  const [activeToggle, setActiveToggle] = useState<'mysuni' | 'expand'>('expand')
+
   return (
     <header className="flex items-center h-12 bg-background border-b-2 border-sidebar-primary px-6 shrink-0">
       {/* Logo — LNB 280px 정렬 */}
@@ -72,24 +74,29 @@ export function GNB() {
           도움말
         </Button>
 
-        {/* shadcn ToggleGroup — Pill Toggle (base-ui: data-pressed) */}
-        <ToggleGroup
-          defaultValue={['expand']}
-          className="bg-muted border border-border rounded-full p-0.5 gap-0"
-        >
-          <ToggleGroupItem
-            value="mysuni"
-            className="!rounded-full px-3.5 py-1 text-xs font-medium text-neutral-700 data-[pressed]:bg-primary data-[pressed]:text-primary-foreground data-[pressed]:font-bold data-[pressed]:shadow-sm h-auto"
+        {/* Segmented Toggle — LMS Theme */}
+        <div className="flex h-8">
+          <button
+            onClick={() => setActiveToggle('mysuni')}
+            className={`px-4 text-xs font-medium border border-r-0 rounded-l-md cursor-pointer ${
+              activeToggle === 'mysuni'
+                ? 'bg-secondary text-lms-primary border-border'
+                : 'bg-neutral-50 text-neutral-500 border-border hover:bg-neutral-100'
+            }`}
           >
             mySUNI
-          </ToggleGroupItem>
-          <ToggleGroupItem
-            value="expand"
-            className="!rounded-full px-3.5 py-1 text-xs font-medium text-neutral-700 data-[pressed]:bg-primary data-[pressed]:text-primary-foreground data-[pressed]:font-bold data-[pressed]:shadow-sm h-auto"
+          </button>
+          <button
+            onClick={() => setActiveToggle('expand')}
+            className={`px-4 text-xs font-medium border rounded-r-md cursor-pointer ${
+              activeToggle === 'expand'
+                ? 'bg-blue-100 text-lms-primary border-border'
+                : 'bg-neutral-50 text-neutral-500 border-border hover:bg-neutral-100'
+            }`}
           >
             구성원확대
-          </ToggleGroupItem>
-        </ToggleGroup>
+          </button>
+        </div>
 
         {/* shadcn Select — 드롭다운 */}
         <Select defaultValue="mysuni1">

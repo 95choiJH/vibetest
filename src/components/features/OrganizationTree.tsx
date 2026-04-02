@@ -75,7 +75,7 @@ function TreeNode({ branch }: { branch: TreeBranch }) {
       <CollapsibleTrigger
         className={`flex items-center w-full px-4 py-2.5 gap-2 cursor-pointer transition-colors text-left rounded-sm ${
           branch.active
-            ? 'bg-secondary-foreground text-primary-foreground'
+            ? 'bg-lms-primary text-primary-foreground'
             : 'bg-neutral-100 text-foreground hover:bg-neutral-200'
         }`}
       >

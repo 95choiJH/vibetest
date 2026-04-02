@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { RiHome4Fill } from '@remixicon/react'
 
 export default function App() {
-  const [orgChangeOpen, setOrgChangeOpen] = useState(false)
+  const [orgChangeOpen, setOrgChangeOpen] = useState(true)
 
   return (
     <div className="flex flex-col h-screen">
