@@ -106,13 +106,23 @@ src/
 | `text-foreground`, `bg-foreground` | `--foreground` | `#262626` (Neutral 800) | 기본 텍스트, 제목 |
 | `bg-primary`, `text-primary` | `--primary` | `#6684B6` (Blue 500) | 활성 상태, 토글, 페이지네이션, 섹션 타이틀바 |
 | `text-primary-foreground` | `--primary-foreground` | `#FFFFFF` | primary 배경 위 텍스트 |
-| `text-secondary-foreground` | `--secondary-foreground` | `#4B5C92` | **버튼 텍스트, 트리 활성 배경** ★ |
+| `text-secondary-foreground` | `--secondary-foreground` | `#4B5C92` | 레거시 (action 토큰으로 대체됨) |
 | `bg-secondary` | `--secondary` | `#FAFAFA` (Neutral 50) | 테이블 헤더 배경 |
 | `text-muted-foreground` | `--muted-foreground` | `#A3A3A3` (Neutral 400) | 비활성 텍스트, placeholder |
 | `border-border` | `--border` | `#DBE2EF` (Blue 200) | 모든 보더, 구분선 |
 | `bg-sidebar-primary` | `--sidebar-primary` | `#3B4B7F` (Blue 600) | GNB 하단선, LNB 카테고리명 |
 | `bg-accent` | `--accent` | `#EDF4FB` (Blue 100) | 메뉴 활성/호버 배경 |
 | `text-destructive` | `--destructive` | `#D72337` (Error 600) | 강조 숫자, 에러 |
+
+#### Domain / LMS 액션 토큰 (★ 버튼에 우선 사용)
+| Tailwind 클래스 | CSS 변수 | 값 | 용도 |
+|-----------------|----------|-----|------|
+| `bg-action-primary`, `text-action-primary` | `--color-action-primary` | `#FF664D` (lms/orange) | **핵심 액션 버튼** (조직변경, 확인) ★ |
+| `bg-action-secondary`, `text-action-secondary` | `--color-action-secondary` | `#6C788F` (blue/450) | **보조 액션 버튼** (취소, 이전, 목록) ★ |
+| `bg-lms-primary`, `text-lms-primary` | `--color-lms-primary` | `#3E7FE3` | 트리 Active 배경, GNB 토글 Active 텍스트 |
+| `bg-lms-secondary` | `--color-lms-secondary` | `#F3F4FA` | GNB 토글 비활성 배경 |
+| `bg-lms-orange` | `--color-lms-orange` | `#FF664D` | LMS 오렌지 Raw |
+| `bg-blue-450` | `--color-blue-450` | `#6C788F` | Blue Gray Raw |
 
 #### Raw 컬러 스케일 (직접 참조)
 | Tailwind 클래스 | 값 | 용도 |
@@ -199,20 +209,27 @@ src/
 
 ### 4-3. 버튼 스타일 패턴
 
-프로젝트 전체에서 통일된 버튼 스타일:
-
+#### 핵심 액션 버튼 (Primary — 조직변경, 확인 등)
 ```tsx
-{/* 표준 아웃라인 버튼 (가장 자주 사용) */}
 <Button
-  variant="outline"
-  size="sm"
-  className="text-[14px] font-bold border-secondary-foreground text-secondary-foreground bg-white hover:bg-secondary-foreground hover:text-primary-foreground"
+  className="h-10 px-8 text-[14px] font-bold bg-action-primary text-white hover:bg-action-primary/90"
 >
-  버튼명
+  조직 변경
 </Button>
 ```
 
-핵심: `border`, `text` → `secondary-foreground (#4B5C92)`, hover 시 배경 반전
+#### 보조 액션 버튼 (Secondary — 취소, 목록, 이전 등)
+```tsx
+<Button
+  variant="outline"
+  size="sm"
+  className="text-[14px] font-bold border-action-secondary text-action-secondary bg-white hover:bg-action-secondary hover:text-white"
+>
+  취소
+</Button>
+```
+
+핵심: Primary → `action-primary (#FF664D)`, Secondary → `action-secondary (#6C788F)`, hover 시 배경 반전
 
 ### 4-4. 검색 입력 패턴
 

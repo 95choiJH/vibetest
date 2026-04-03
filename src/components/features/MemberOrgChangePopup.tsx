@@ -254,7 +254,7 @@ export function MemberOrgChangePopup({
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-9 px-5 text-[13px] font-bold border-foreground text-foreground bg-white hover:bg-foreground hover:text-primary-foreground"
+                  className="h-9 px-5 text-[13px] font-bold border-action-secondary text-action-secondary bg-white hover:bg-action-secondary hover:text-white"
                 >
                   검색
                 </Button>
@@ -481,13 +481,13 @@ export function MemberOrgChangePopup({
             <div className="flex items-center justify-center gap-2">
               <Button
                 variant="outline"
-                className="h-10 px-8 text-[14px] font-bold border-border text-foreground hover:bg-neutral-100"
+                className="h-10 px-8 text-[14px] font-bold border-action-secondary text-action-secondary bg-white hover:bg-action-secondary hover:text-white"
                 onClick={() => onOpenChange(false)}
               >
                 취소
               </Button>
               <Button
-                className="h-10 px-8 text-[14px] font-bold bg-primary text-primary-foreground hover:bg-primary/90"
+                className="h-10 px-8 text-[14px] font-bold bg-action-primary text-white hover:bg-action-primary/90"
               >
                 조직 변경
               </Button>

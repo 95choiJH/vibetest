@@ -38,6 +38,14 @@
     /* LMS */
     --color-lms-primary: #3E7FE3;
     --color-lms-secondary: #F3F4FA;
+    --color-lms-orange: #FF664D;
+
+    /* Blue extended */
+    --color-blue-450: #6C788F;
+
+    /* Action semantic tokens (Domain / LMS) */
+    --color-action-primary: #FF664D;
+    --color-action-secondary: #6C788F;
 
     /* Utility colors */
     --color-accent-link: #0066FF;

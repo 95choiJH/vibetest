@@ -99,7 +99,6 @@
 | :--- | :--- | :--- | :--- |
 | **활성화 배경** (토글, 페이지네이션) | `--primary` | `#6684B6` | Blue 스케일 > 500 |
 | **GNB 언더라인, 도움말 버튼** | `--sidebar-primary` | `#3B4B7F` | Blue 스케일 > 600 |
-| **트리 Active 배경, 버튼 라인/텍스트** | `--secondary-foreground` | `#4B5C92` | General > Secondary Foreground |
 | **활성화 위 텍스트** | `--primary-foreground` | `#FFFFFF` | White |
 | **본문 배경** | 직접 참조 | `#F3F4FA` | Blue 스케일 > 50 |
 | **LNB 호버/Active 배경** | 직접 참조 | `#F3F4FA` | Blue 스케일 > 50 |
@@ -108,6 +107,17 @@
 | **비활성 텍스트** | `--muted-foreground` | `#A3A3A3` | Neutral 스케일 > 400 |
 | **에러/강조 숫자** | `--destructive` | `#D72337` | Error 스케일 > 600 |
 | **테이블 헤더 배경** | `--secondary` | `#FAFAFA` | Neutral 스케일 > 50 |
+
+### Domain / LMS 컬러 (Action Semantic)
+
+| 용도 | Primitive Name | Semantic Name | 변수명 | HEX 값 |
+| :--- | :--- | :--- | :--- | :--- |
+| **핵심 액션 버튼** (조직변경, 확인) | `lms/orange` | `action/primary` | `--color-action-primary` | `#FF664D` |
+| **보조 액션 버튼** (취소, 이전) | `blue/450` | `action/secondary` | `--color-action-secondary` | `#6C788F` |
+| **트리 Active 배경** | `lms/primary` | - | `--color-lms-primary` | `#3E7FE3` |
+| **GNB 토글 비활성 배경** | `lms/secondary` | - | `--color-lms-secondary` | `#F3F4FA` |
+| **LMS 오렌지 Raw** | `lms/orange` | - | `--color-lms-orange` | `#FF664D` |
+| **Blue Gray Raw** | `blue/450` | - | `--color-blue-450` | `#6C788F` |
 
 ### 컬러 변경 방법
 웹 코드에서 컬러를 바꾸려면 `src/index.css` 파일의 `:root` 섹션에서 해당 변수 값만 수정하면 전체에 자동 반영됩니다.
@@ -172,5 +182,5 @@
 
 ---
 
-*최종 업데이트: 2026-04-02*
+*최종 업데이트: 2026-04-03*
 *작성: Claude Code (Obra shadcn_ui kit 기반)*

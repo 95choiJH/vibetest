@@ -125,7 +125,7 @@ export function OrganizationTree() {
           <Button
             variant="outline"
             size="sm"
-            className="h-9 px-3 text-[14px] font-bold bg-white border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-primary-foreground"
+            className="h-9 px-3 text-[14px] font-bold bg-white border-action-secondary text-action-secondary hover:bg-action-secondary hover:text-white"
           >
             조직 관리
           </Button>

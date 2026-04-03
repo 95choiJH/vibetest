@@ -69,7 +69,7 @@ export function MemberTable({ onOrgChange }: { onOrgChange?: () => void }) {
           <Button
             variant="outline"
             size="sm"
-            className="h-9 text-[14px] font-bold bg-white border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-primary-foreground"
+            className="h-9 text-[14px] font-bold bg-white border-action-secondary text-action-secondary hover:bg-action-secondary hover:text-white"
             onClick={onOrgChange}
           >
             구성원 소속 및 리더 설정

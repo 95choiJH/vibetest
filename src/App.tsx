@@ -48,7 +48,7 @@ export default function App() {
             <Button
               variant="outline"
               size="sm"
-              className="text-[14px] font-bold border-secondary-foreground text-secondary-foreground bg-white hover:bg-secondary-foreground hover:text-primary-foreground"
+              className="text-[14px] font-bold border-action-secondary text-action-secondary bg-white hover:bg-action-secondary hover:text-white"
             >
               목록
             </Button>
@@ -56,14 +56,14 @@ export default function App() {
               <Button
                 variant="outline"
                 size="sm"
-                className="text-[14px] font-bold border-secondary-foreground text-secondary-foreground bg-white hover:bg-secondary-foreground hover:text-primary-foreground"
+                className="text-[14px] font-bold border-action-secondary text-action-secondary bg-white hover:bg-action-secondary hover:text-white"
               >
                 구성원 추가
               </Button>
               <Button
                 variant="outline"
                 size="sm"
-                className="text-[14px] font-bold border-secondary-foreground text-secondary-foreground bg-white hover:bg-secondary-foreground hover:text-primary-foreground"
+                className="text-[14px] font-bold border-action-secondary text-action-secondary bg-white hover:bg-action-secondary hover:text-white"
               >
                 엑셀 업로드
               </Button>
